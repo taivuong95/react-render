@@ -1,0 +1,20 @@
+import React,{useState} from 'react';
+import ChildOne from './ChildOne';
+import ParentOne from './ParentOne';
+
+
+function GrandParent(props) {
+    const [newCount, setNewCount] = useState(0)
+    return (
+        <div>
+            <button onClick={() => setNewCount((nc) => nc + 1)}>
+                GrandParent Count - {newCount}
+            </button>
+            <ParentOne newCount={newCount}>
+                <ChildOne/>
+            </ParentOne>
+        </div>
+    );
+}
+
+export default GrandParent;
